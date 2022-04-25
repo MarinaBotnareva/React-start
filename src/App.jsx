@@ -3,6 +3,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import Header from './components/Header';
 import Counter from "./components/Counter";
+import Slider from "./components/Slider";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends React.Component {
         <Header logoText={this.state.brand} user={this.state.user} />
         <main>
           <Counter />
+          <Slider />
           <Home />
           <About />
         </main>

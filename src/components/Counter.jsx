@@ -9,7 +9,7 @@ class Counter extends React.Component {
   }
 
   // используем стрелки для слушателей событий
-  buttonClick = () => {
+  increment = () => {
     // изменение состояния приводит к перерисовке
     // state всегда обьект - поэтому создаем новый обьект
     this.setState((state) => {
@@ -20,14 +20,31 @@ class Counter extends React.Component {
     });
   }
 
+  decrement = () => {
+    this.setState((state) => {
+      return {
+        ...state,
+        counter: state.counter - 1,
+      };
+    });
+  }
+
+  reset = () => {
+    this.setState((state) => ({...state, counter: 0}));
+  }
+
   render() {
     return (
       <div>
+        <button onClick={this.decrement}>-1</button>
         <div>{this.state.counter}</div>
-        <button onClick={this.buttonClick}>+1</button>
+        <button onClick={this.increment}>+1</button>
+        <button onClick={this.reset}>reset</button>
       </div>
     );
   }
+
+
 }
 
 export default Counter;
