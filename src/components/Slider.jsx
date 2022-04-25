@@ -50,14 +50,11 @@ class Slider extends React.Component {
 
     timer = () => {
       if (this.timerID) {
-        clearInterval(this.timerID);
+        this.componentWillUnmount();
       this.timerID = null;
       }
     else {
-      this.timerID = setInterval(
-        () => this.next(),
-        1000
-      );
+      this.componentDidMount()
     }
   } 
 
