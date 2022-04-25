@@ -19,15 +19,23 @@ class Slider extends React.Component {
         id: 0};
   }
 
-  componentDidMount() {
+  startTimer() {
     this.timerID = setInterval(
       () => this.next(),
       1000
     );
   }
 
-  componentWillUnmount() {
+  stopTimer() {
     clearInterval(this.timerID);
+  }
+
+  componentDidMount() {
+    this.startTimer() 
+  }
+
+  componentWillUnmount() {
+    this.stopTimer()
   }
 
   next = () => {
@@ -50,14 +58,11 @@ class Slider extends React.Component {
 
     timer = () => {
       if (this.timerID) {
-        clearInterval(this.timerID);
+        this.stopTimer();
       this.timerID = null;
       }
     else {
-      this.timerID = setInterval(
-        () => this.next(),
-        1000
-      );
+      this.startTimer();
     }
   } 
 
