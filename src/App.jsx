@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Header from './components/Header';
 import Counter from "./components/Counter";
 import Slider from "./components/Slider";
+import Labirint from "./components/Labirint";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -22,6 +24,7 @@ class App extends React.Component {
         <main>
           <Counter />
           <Slider />
+          <Labirint />
           <Home />
           <About />
         </main>
